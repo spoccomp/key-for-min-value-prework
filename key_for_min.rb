@@ -3,10 +3,17 @@
 hash = {:blake => 500, :ashley => 2, :adam => 1}
 
 def key_for_min_value(hash)
-min = hash.find{|value| value[:adam]< hash[:adam]}
-  #hash.collect do|name,value|
-  #  if value == 1
-  #    name
-  #  end
-  #end
+  # code goes here
+  min_value = nil
+  min_key = nil
+  hash.each do |k, v|
+    if min_value == nil
+      min_value = v
+      min_key = k
+    elsif min_value > v
+      min_value = v
+      min_key = k
+    end
+  end
+  min_key
 end
